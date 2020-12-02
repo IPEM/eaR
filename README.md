@@ -31,8 +31,7 @@ Running the Auditory Model makes it necessary to give permissions to execute the
 library(eaR)
 InstallAuditoryModel("mac")
 ```
-
-[//]: <> (Otherwise, for a manual setting see [Readme.txt](Auditory_Model/Readme.txt).)
+(See: Auditory_Model/Readme.txt)
 
 ## A short glipmse to Auditory Images, the atom of **eaR** Package
 Artificial Neural Networks are information processing systems whose structure and operating are inspired by the biological ones. Thus, Auditory Images are, in essence, the basis elements that represents features related to an acoustic signal, particurally, a set of harmonic oscillators distributed in pitch-related frequency bands.
