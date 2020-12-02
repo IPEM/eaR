@@ -36,7 +36,7 @@ InstallAuditoryModel("mac")
 ## A short glipmse to Auditory Images, the atom of **eaR** Package
 Artificial Neural Networks are information processing systems whose structure and operating are inspired by the biological ones. Thus, Auditory Images are, in essence, the basis elements that represents features related to an acoustic signal, particurally, a set of harmonic oscillators distributed in pitch-related frequency bands.
 
-The kernel of **eaR** Package  is an adapted version of  [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840) model of the auditory periphery. The auditory model -written in c-code- simulates the cochlear mechanical filtering using an array of overlapping band-pass filters. The output of the model is the *primary image* or *auditory nerve image* (ANI), which represents the rate-code of neural discharge in a set of channels *`C`*.
+The kernel of **eaR** Package  is an adapted version of  [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840) model of the auditory periphery. The auditory model -written in c-code- simulates the cochlear mechanical filtering using an array of overlapping band-pass filters. The output of the model is the *primary image* or *auditory nerve image* (ANI), which represents the rate-code of neural discharge in a set of channels.
 
 The package was designed through the object class `ANI`, which at least must contain an image, the sample frequency of the image and a set of frequencies or periods used in their transformations. Unlike in IPEM Toolbox, the formulation of the class `ANI`  facilitates interaction in the use of the functions and prevent disorderly data. 
 
