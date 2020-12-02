@@ -1,0 +1,17 @@
+Package: eaR
+Title: Perception-based Music Analysis
+Version: 0.1.2
+Author: Marc Vidal [aut, cre], 
+        Marc Leman [aut]
+Maintainer: Marc Vidal <Marc.VidalBadia@UGent.be>
+Description: Analysis of music content and automatic extraction and description of musical features from Auditory Images, calculated from the acoustical signal.
+License: GPL (>= 2)
+URL: https://github.com/m-vidal/eaR
+Depends: 
+    R (>= 3.5.0)
+Imports: seewave, signal, stats, tuneR, utils
+Suggests: cowplot, ggplot2, reshape2
+Encoding: UTF-8
+LazyData: true
+NeedsCompilation: no
+RoxygenNote: 6.1.1
