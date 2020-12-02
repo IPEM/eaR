@@ -53,7 +53,7 @@ R> PlotImage(PPs)
 You will get an image as follows,
 
 <div align="center">
- <img src="https://github.com/m-vidal/pv01/blob/master/PP.jpeg"></a><br>
+ <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>
 </div>
 
 As described in the documentation, **eaR** Package is a tool for auditory information processing that inferences on sound patterns to simulate the perception of humans listening to music.
