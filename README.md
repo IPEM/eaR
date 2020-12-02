@@ -32,7 +32,7 @@ library(eaR)
 InstallAuditoryModel("mac")
 ```
 
-Otherwise, for a manual setting see [Readme.txt](https://github.com/m-vidal/pv01/blob/master/inst/Auditory_Model/Readme.txt).
+[//]: <> (Otherwise, for a manual setting see [Readme.txt](Auditory_Model/Readme.txt).)
 
 ## A short glipmse to Auditory Images, the atom of **eaR** Package
 Artificial Neural Networks are information processing systems whose structure and operating are inspired by the biological ones. Thus, Auditory Images are, in essence, the basis elements that represents features related to an acoustic signal, particurally, a set of harmonic oscillators distributed in pitch-related frequency bands.
