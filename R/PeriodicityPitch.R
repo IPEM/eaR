@@ -1,6 +1,7 @@
-PeriodicityPitch <- function(inANIObj, inLowFrequency = 80,
-                             inFrameWidth = 0.064, inFrameStepSize = 0.010)
-{
+PeriodicityPitch <- function(inANIObj,
+                             inLowFrequency = 80,
+                             inFrameWidth = 0.064,
+                             inFrameStepSize = 0.010) {
   inMatrix <- inANIObj[[1]]
   inSampleFreq <- inANIObj[[2]]
 
@@ -14,13 +15,14 @@ PeriodicityPitch <- function(inANIObj, inLowFrequency = 80,
   f <- signal::butter(2, inLowFrequency/HalfSampleFreq)
 
   fANI <- inMatrix*0
+
   for (i in 1:nrow(inMatrix)){
-    fANI[i,] <-signal::filter(f$b, f$a, inMatrix[i,])
+    fANI[i,] <- signal::filter(f$b, f$a, inMatrix[i,])
   }
 
   IR <- signal::impz(f$b, f$a)
 
-  theMax<-max(IR$x)
+  theMax <- max(IR$x)
   theMaxIndex <- match(max(IR$x),IR$x)
   theDelay <- theMaxIndex-1
 
@@ -29,16 +31,15 @@ PeriodicityPitch <- function(inANIObj, inLowFrequency = 80,
 
   ACOR <- matrix(0, nrow = FrameWidth,
                  ncol = length(seq(1, ncol(FANI)-FrameWidth2, FrameStepSize))+1)
-  counter <- 1
-  theZeroes <- array(0L, FrameWidth)
 
+  theZeroes <- array(0L, FrameWidth)
+  counter <- 1
   for (i in seq(1, (ncol(FANI)-FrameWidth2+1), FrameStepSize)) {
     SumAutoCorr <- array(0L, FrameWidth)
 
     for (j in 1:nrow(FANI)){
       AutoCorr <- stats::convolve(c(theZeroes, FANI[j,i:(i+FrameWidth-1)]),
                                   FANI[j,i:(i+FrameWidth2-1)])
-
       SumAutoCorr <- SumAutoCorr + AutoCorr[(FrameWidth+1):(FrameWidth2)]
     }
 

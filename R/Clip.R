@@ -1,6 +1,8 @@
-Clip <- function (inSignal, inLowLimit = NULL, inHighLimit = NULL,
-                  inClipLowTo = NULL, inClipHighTo = NULL)
-{
+Clip <- function (inSignal,
+                  inLowLimit = NULL,
+                  inHighLimit = NULL,
+                  inClipLowTo = NULL,
+                  inClipHighTo = NULL) {
   outSignal <- inSignal
   if (!is.null(inLowLimit)) {
     theIndices <- which(inSignal < inLowLimit)
@@ -19,6 +21,5 @@ Clip <- function (inSignal, inLowLimit = NULL, inHighLimit = NULL,
     outSignal[theIndices] <- inHighLimit
       }
   }
-
   return(outSignal)
 }

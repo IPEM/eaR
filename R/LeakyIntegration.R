@@ -1,6 +1,7 @@
-LeakyIntegration <- function(inSignal, inSampleFreq,
-                             inHalfDecayTime = 0.1, inEnlargement = 0)
-{
+LeakyIntegration <- function(inSignal,
+                             inSampleFreq,
+                             inHalfDecayTime = 0.1,
+                             inEnlargement = 0) {
   if (inEnlargement == -1) {
     inEnlargement <- 2*inHalfDecayTime
   }

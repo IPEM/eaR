@@ -1,6 +1,7 @@
-CalcRMS <- function (inSignal, inSampleFreq, inFrameWidth,
-                    inFrameInterval)
-{
+CalcRMS <- function (inSignal,
+                     inSampleFreq,
+                     inFrameWidth,
+                    inFrameInterval) {
   M <- ncol(inSignal)
   N <- nrow(inSignal)
 

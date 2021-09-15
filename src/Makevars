@@ -1,0 +1,18 @@
+# -*- Makefile -*-
+
+#PKG_CPPFLAGS= -Iaudioprogs -Ilibrary
+
+#PKG_LIBS=-L@JAGS_LIB@ $(BLAS_LIBS) $(LAPACK_LIBS)  $(LIBS) $(FLIBS)
+
+#OBJECTS.audiprog=audiprog/Audimod.o audiprog/AudiProg.o audiprog/cpu.o audiprog/cpupitch.o audiprog/decimation.o audiprog/ecebank.o audiprog/filterbank.o audiprog/Hcmbank.o 
+#OBJECTS.library=library/command.o library/filenames.o library/pario.o library/sigio.o
+#OBJECTS.root = IPEMAuditoryModel.o
+
+#OBJECTS = $(OBJECTS.audiprog) $(OBJECTS.library) $(OBJECTS.root)
+
+all: before $(SHLIB)
+
+clean:
+	rm -f $(OBJECTS)
+
+before: clean

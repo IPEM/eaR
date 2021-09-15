@@ -10,6 +10,3 @@
 \item{LeftIndex}{the index of the nearest miminum to the left of the peak. If no real minimum was found, 1 is returned.}
 \item{RightIndex}{the index of the nearest miminum to the right of the peak. If no real minimum was found, \code{length(inSignal)} is returned.}}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\examples{data(SchumannKurioseGeschichte)
-Ps <- FindAllPeaks(SchumannKurioseGeschichte)
-FindNearestMinima(SchumannKurioseGeschichte, Ps)}

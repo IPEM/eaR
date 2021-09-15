@@ -1,6 +1,8 @@
-ShepardTone <- function(inMainFreq, inDuration = 1, inSampleFreq = 22050,
-                        inPhaseFlag = 1, indBLevel = NULL)
-{
+ShepardTone <- function(inMainFreq,
+                        inDuration = 1,
+                        inSampleFreq = 22050,
+                        inPhaseFlag = 1,
+                        indBLevel = NULL) {
   theMinFreq <- 15
   theMaxFreq <- inSampleFreq/2
 

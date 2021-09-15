@@ -1,11 +1,12 @@
-# **eaR**: An R package for perception-based music analysis
-
+# **eaR**: An R package for perception-based auditory analysis
+<!--- 
 [![Travis-CI Build Status](https://travis-ci.org/FredHasselman/casnet.svg?branch=master)](https://travis-ci.org/FredHasselman/casnet)
+-->
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/FredHasselman/casnet?branch=master&svg=true)](https://ci.appveyor.com/project/FredHasselman/casnet)
 [![CRAN status](https://www.r-pkg.org/badges/version/casnet)](https://cran.r-project.org/package=casnet)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-This is a version in development of **eaR** package, an open-source auditory **R** tool for perception-based music analysis. We provide a user-friendly and flexible tool oriented to facilitate the workflow of researchers interested in content analysis and automatic extraction and description of musical features. Routines are mainly designed according to the  Auditory Short Term Memory (ASTM) model developed by Marc Leman and previously implemented in [IPEM Toolbox](https://www.ugent.be/lw/kunstwetenschappen/ipem/en/research/projects/finishedprojects/ipem-toolbox.htm).  
+This is a version in development of the **eaR** package, an open-source **R** tool for perception-based auditory analysis. **eaR** provides user-friendly and flexible tool oriented to facilitate the workflow of researchers interested in content analysis and automatic extraction of auditory and musical features. Routines are mainly designed according to the  auditory short term memory (ASTM) model developed by Marc Leman and previously implemented in [IPEM Toolbox](https://www.ugent.be/lw/kunstwetenschappen/ipem/en/research/projects/finishedprojects/ipem-toolbox.htm).  
 
 
 ## Install the Package
@@ -21,9 +22,9 @@ After that, to download **eaR**, you can type in the **R** prompt:
 ```R
 install_github("m-vidal/eaR")
 ```
+<!--- 
 You will get a message confirming that your **eaR** Package has been installed correctly.
 ___
-
 :exclamation: **Note for Mac users:**
 Running the Auditory Model makes it necessary to give permissions to execute the file `.../Auditory_Model/ASTMunix`. To install correctly all dependecies, once the package is download type in the **R** prompt:
 
@@ -32,34 +33,31 @@ library(eaR)
 InstallAuditoryModel("mac")
 ```
 (See: Auditory_Model/Readme.txt)
+-->
 
-## A short glipmse to Auditory Images, the atom of **eaR** Package
-Artificial Neural Networks are information processing systems whose structure and operating are inspired by the biological ones. Thus, Auditory Images are, in essence, the basis elements that represents features related to an acoustic signal, particurally, a set of harmonic oscillators distributed in pitch-related frequency bands.
-
-The kernel of **eaR** Package  is an adapted version of  [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840) model of the auditory periphery. The auditory model -written in c-code- simulates the cochlear mechanical filtering using an array of overlapping band-pass filters. The output of the model is the *primary image* or *auditory nerve image* (ANI), which represents the rate-code of neural discharge in a set of channels.
-
-The package was designed through the object class `ANI`, which at least must contain an image, the sample frequency of the image and a set of frequencies or periods used in their transformations. Unlike in IPEM Toolbox, the formulation of the class `ANI`  facilitates interaction in the use of the functions and prevent disorderly data. 
+## A short glipmse to Auditory Images, the atom of **eaR**
+The **eaR**  package contains an adapted version of the auditory periphery model proposed by [Van Immerseel and Martens (1992)](https://asa.scitation.org/doi/10.1121/1.402840). The model simulates the cochlear mechanical filtering using an array of overlapping band-pass filters yielding to a set of harmonic oscillators distributed in pitch-related frequency bands. An audio signal can be represented as a *primary image* or *auditory nerve image* (ANI), which is k-dimensional vector of rate-code of neural discharges in k-frequency bands.
 
 To calculate the ANI of the *SchumannKurioseGeschichte* dataset, type:
 
 ```R
-R> s <- SchumannKurioseGeschichte
-R> ANIs <- CalcANI(s, 22050)
-R> PPs <- PeriodicityPitch(ANIs)
-R> PlotImage(PPs)
+library(eaR)
+data(SchumannKurioseGeschichte)
+ANIs <- CalcANI(SchumannKurioseGeschichte, 22050) #auditory nerve image
+PPs <- PeriodicityPitch(ANIs)
+PlotImage(PPs)
 ```
 
-You will get an image as follows,
+After running the code, you will get an image as follows,
 
 <div align="center">
  <img src="https://github.com/m-vidal/eaR/blob/main/PP.jpeg"></a><br>
 </div>
+which is a transformation of the auditory nerve image into a more coherent pitch representation.
 
-As described in the documentation, **eaR** Package is a tool for auditory information processing that inferences on sound patterns to simulate the perception of humans listening to music.
+## Version 0.2.1
 
-## Version 0.1.2 beta
-
-This version includes the functions detailed in the following table. In addition, you can check whether the functions and documentation are available as it is a beta version. Note that the documentation is under revision yet.
+The package was designed through the object class `ANI`, which at least must contain an image, the sample frequency of the image and a set of frequencies or periods used in their transformations. Unlike in IPEM Toolbox, the formulation of the class `ANI`  facilitates interaction in the use of the functions and prevent disorderly data. This version includes the functions detailed in the following table. In addition, you can check whether the functions and documentation are available. 
 
 Function | Status | Documentation | Migrated |
 | :---  |  :---:  |  :---:  |  :---:  
@@ -92,7 +90,7 @@ Function | Status | Documentation | Migrated |
 **eaR** uses a core application written in c-code which is fully executable in R environments. 
 Both the **eaR** Package code and the auditory model c-code are released under the GPL.
 
-`eaR` Package was build on **R** version 3.6.1.
+`eaR` Package was build on **R** 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out".
 
 [PPImage]: https://github.com/m-vidal/pv01/blob/master/PP.jpeg "Periodicity Pitch Image"
 

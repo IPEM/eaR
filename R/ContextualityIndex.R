@@ -1,6 +1,8 @@
-ContextualityIndex <- function( inANIObj, inSnapShot = NULL, inHalfDecayChords = 0.1,
-                                inHalfDecayToneCenters = 1.5, inEnlargement = 0)
-{
+ContextualityIndex <- function(inANIObj,
+                               inSnapShot = NULL,
+                               inHalfDecayChords = 0.1,
+                               inHalfDecayToneCenters = 1.5,
+                               inEnlargement = 0) {
 
   inPeriodicityPitch <- inANIObj[[1]]
   inSampleFreq <- inANIObj[[2]]
@@ -67,8 +69,10 @@ ContextualityIndex <- function( inANIObj, inSnapShot = NULL, inHalfDecayChords =
     Contextuality.Index <- list(outToneCenters, outChords,  outContextuality1,
                               outContextuality2, outContextuality3)
     class(Contextuality.Index) <- "AI"
-    names(Contextuality.Index) <- c("ChordsImage", "ToneCentersImage",
-                                  "LocalInspection", "GlobalInspection",
-                                  "Comparison")
+    names(Contextuality.Index) <- c("ChordsImage",
+                                    "ToneCentersImage",
+                                    "LocalInspection",
+                                    "GlobalInspection",
+                                    "Comparison")
     return(list(Contextuality.Index, coefplot))
   }
