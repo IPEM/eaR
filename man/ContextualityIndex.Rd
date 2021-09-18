@@ -2,13 +2,13 @@
 \alias{ContextualityIndex}
 \title{Tone Contextuality Index}
 \description{
-Contextuality measures the pitch commonality between two running pitch images of the same sound, each having a possible different echo \eqn{T}. In Leman (2000), contextuality is used to measure the pitch commonality of local (short echo) images versus global (long echo) images.
+The contextuality index measures the pitch commonality between two running periodicity pitch images, each one having a possible different echo. For both images, pitch commonality is also evaluated with respect to a probe. In Leman (2000), the contextuality index is used to measure the pitch commonality of local (short echo) images versus global (long echo) images.
 
-This function uses a pitch image \eqn{\mathbf{P}} to determine two echoed images with a different \eqn{T} using \code{\link{LeakyIntegration}}. Then, we calculated the Pearson correlation coefficient  concerning  the following methods:
-\itemize{\item{\emph{Inspection}: compares a fixed local image (or \emph{probe}) with running local images and running global images.  In this case, \eqn{\mathbf{P}^{T}} refers to both running local and global images while the fixed local image is the last sample of it; thus, the correlation coefficient can be expressed as}}
-\deqn{\rho_{i}=\frac{1}{m-1}\sum_{k=1}^{m}\left(\frac{\overline{\mathbf{P}_{ik}^{T}-\mu_{i}}}{\sigma_{i}}\right)\left(\frac{\mathbf{P}_{nk}^{T}-\mu_{n}}{\sigma_{n}}\right).}
-\itemize{\item{\emph{Comparison}: compares a running local image \eqn{\mathbf{P}^{T_{1}}} with running global image \eqn{\mathbf{P}^{T_{2}}}. Then the correlation coefficient between corresponding columns is}}
-\deqn{\rho_{i}=\frac{1}{m-1}\sum_{k=1}^{m}\left(\frac{\overline{\mathbf{P}_{ik}^{T_{1}}-\mu_{i}}}{\sigma_{i}}\right)\left(\frac{\mathbf{P}_{ik}^{T_{2}}-\mu_{i}}{\sigma_{i}}\right).}
+The function uses a periodicity pitch image %\eqn{(P_{kl})_{w \times z}}
+to determine two echoed images with a different rate of decay using \code{\link{LeakyIntegration}}. Then, Pearson's correlation coefficient  is calculated across all periodicities concerning  the following methods:
+\itemize{\item{\emph{Inspection}: compares a fixed local image (the \emph{probe} tone) with running local images and running global images.}}  %Let \eqn{P_{lk}^{\tau}} refer to both running local and global images while the fixed local image is the last sample of it; thus, the correlation coefficient can be expressed as}} \deqn{\rho_{l}=\frac{1}{m_2-1}\sum_{k=1}^{m_2}\left(\frac{\overline{P_{lk}^{\tau}-\mu_{l}}}{\sigma_{l}}\right)\left(\frac{P_{n_2k}^{\tau}-\mu_{n_2}}{\sigma_{n_2}}\right).}
+\itemize{\item{\emph{Comparison}: compares a running local image with a running global image. %Then the correlation coefficient between corresponding columns is}} \deqn{\rho_{l}=\frac{1}{m_2-1}\sum_{k=1}^{m_2}\left(\frac{\overline{P_{lk}^{\tau_{1}}-\mu_{l}}}{\sigma_{l}}\right)\left(\frac{P_{lk}^{\tau_{2}}-\mu_{l}}{\sigma_{l}}\right).
+}}
 }
 \usage{ContextualityIndex(inANIObj, inSnapShot = NULL, inHalfDecayChords = 0.1,
                   inHalfDecayToneCenters = 1.5, inEnlargement = 0)}
@@ -29,9 +29,9 @@ This function uses a pitch image \eqn{\mathbf{P}} to determine two echoed images
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
 \note{Sample frequency of output signals is the same as \code{inSampleFreq}.}
 \examples{C  <- ShepardToneComplex(c(1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0),0.75,22050,1,-20)
-F  <- ShepardToneComplex(c(1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0),0.75,22050,1,-20)
-G  <- ShepardToneComplex(c(0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1),0.75,22050,1,-20)
-s<-c(C, F, G, C)
+F <- ShepardToneComplex(c(1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0),0.75,22050,1,-20)
+G <- ShepardToneComplex(c(0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1),0.75,22050,1,-20)
+s <- c(C, F, G, C)
 ANIs <- CalcANI(s, 22050)
 PPs <- PeriodicityPitch(ANIs)
 CIs <- ContextualityIndex(PPs)}

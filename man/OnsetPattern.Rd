@@ -1,10 +1,10 @@
 \name{OnsetPattern}
 \alias{OnsetPattern}
 \title{Onset Pattern}
-\description{Integrate-and-fire neural net for onset-detection. Based on an article by Leslie S. Smith (1996). Neuron dynamics are given by: \code{dA/dt = Input(t) - diss*A}, being \code{A} the neurons' accumulated value and \code{I} the dissipation}
+\description{Integrate-and-fire neural net for onset-detection. Based on an article by Leslie S. Smith (1996). Neuron dynamics are given by: \code{dA/dt = Input(t) - diss*A}, being \code{A} the neurons' accumulated value and \code{diss} the dissipation.}
 \usage{OnsetPattern(inSignal, inSampleFreq)}
 \arguments{
-  \item{inSignal}{a matrix of size  \emph{n} x \emph{m} where \emph{n} is the number of channels and \emph{m} is the length in samples.}
+  \item{inSignal}{a matrix of size  \emph{n} x \emph{m} where \emph{n} is the length of time observations and \emph{m} is the number of channels.}
   \item{inSampleFreq}{the sample frequency of the incoming signal (in Hz).}}
 \value{
  \item{OnsetPattern}{a matrix of size  \emph{n} x \emph{m} where an element is 1 if an onset was detected.}

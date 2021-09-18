@@ -6,7 +6,7 @@ CalcNoteFrequency <- function (inNote, inOctave = 4)
     NoteName <- c('C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B')
   }
 
-  Notenum<- c(-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2)
+  Notenum <- c(-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2)
   As <- c(27.5, 55, 110, 220, 440, 880, 1760, 3520)
   for (i in 1:length(NoteName)) {
     if (NoteName[i] == inNote) {

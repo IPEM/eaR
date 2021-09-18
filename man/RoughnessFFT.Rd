@@ -1,26 +1,26 @@
 \name{RoughnessFFT}
 \alias{RoughnessFFT}
 \title{Calculation of the Roughness of Acoustical Musical Signals}
-\description{This function estimates the roughness (or equivalently: the sensory dissonance) of a sound, from its Auditory Nerve Image calculated in \code{\link{CalcANI}}.
+\description{This function estimates the roughness (or the sensory dissonance) of a sound, from its Auditory Nerve Image calculated in \code{\link{CalcANI}}.
 
-Roughness is considered to be a sensory process highly related to texture perception. The visualization and calculation method is based on Leman (2000), where roughness is defined as the energy of the relevant beating frequencies in the auditory channels. The model is called the synchronization index model of roughness, and it is based on phase-locking to frequencies that are present in the neural patterns. The synchronization index model allows a straightforward visualization of the energy components underlying roughness, in particular concerning auditory channels and to phase-locking synchronization (the synchronization index for the relevant beating frequencies on a frequency scale).
+Roughness is considered to be a sensory process highly related to texture perception. The visualization and calculation method is based on Leman (2000), where roughness is defined as the energy of the relevant beating frequencies in the auditory channels. The model is based on phase-locking to frequencies that are present in the neural patterns. A synchronization index allows the visualization of the energy components underlying roughness, in particular concerning the auditory channels and the phase-locking synchronization, that is, the synchronization index for the relevant beating frequencies on a frequency scale.
 
 Beating frequencies are those at which the sound oscillates in amplitude. Thus, for an amplitude modulated sine wave with carrier frequency \eqn{f_{c}} and modulated frequency \eqn{f_m}, its spectrum has only three frequencies: \eqn{f_{c}}, \eqn{f_{c}-f_{m}} and \eqn{f_{c}+f_{m}}. The beating frequency is \eqn{f_m}. Now, in the auditory system, these frequencies are introduced as elective beating frequencies into the spectrum of the neural rate-code patterns. This is because to wave rectification in the cochlea, where the lower part of the modulated signal is cut off. As a result, the new frequencies are introduced of which the most important ones correspond with the beating frequency \eqn{f_m} and its multiples. Neurons may synchronize with these frequencies provided that they fall in the frequency range where synchronization is physiologically possible. This mechanism forms a physiological basis for the detection of beats and hence, the sensation of roughness.
 
-The synchronization index model calculates roughness in terms of the energy of neural synchronization to the beating frequencies. The energy refers to a quantity which we derive from the magnitude spectrum. Since the beating frequencies are contained in the lower spectral area of the neuronal pattern \eqn{\mathbf{c}_{k}(t)}, the spectral part we are interested in is defined as:
-\deqn{\mathbf{b}_{k}(\omega)=\mathbf{f}_{k}(\omega)|\mathbf{d}_{k}(\omega)|}
-where \eqn{\mathbf{f}_{k}(\omega)} is a filter whose spectrum is depending on the channel \eqn{k}, and \eqn{\mathbf{d}_{k}(\omega)} is the short-term spectrum which we define as:
-\deqn{\mathbf{d}_{k}(\omega)=\int_{-\infty}^{+\infty}\mathbf{c}_{k}(t)w\left(t^{\prime}-t\right)e^{-2\pi i \omega t^{\prime}}dt^{\prime}}
-where \eqn{w\left(t^{\prime}-t\right)} is a (hamming) window and \eqn{\left\{\mathbf{d}_{k}(\omega)\right\}_{k=1,2,\ldots,m}} are the rows of \eqn{D_{t}(k, \omega)}. The \emph{magnitude} spectrum is then defined as \eqn{|D_{t}(k, \omega)|} and the \emph{phase} spectrum as \eqn{\angle D_{t}(k, \omega)}. In order to be able to reproduce the psychoacoustical data on roughness, the filters \eqn{\mathbf{f}_{k}(\omega)} should be more narrow at auditory channels where the center frequency is below 800 Hz, and the filters should be attenuated for high center frequencies as well.
+The synchronization index model calculates roughness in terms of the energy of neural synchronization to the beating frequencies. The energy refers to a quantity which we derive from the magnitude spectrum. Since the beating frequencies are contained in the lower spectral area of a continuous neural auditory pattern \eqn{a(t)}, the spectral part we are interested in is
+\deqn{b_j(t,\omega)=F_j(t,\omega)|d_{j}(t,\omega)|,\quad(j=1,\ldots,m),}
+where \eqn{F(\omega)} is a filter and \eqn{d_{j}(t,\omega)} is the short-term spectrum
+\deqn{d_{j}(t,\omega)=\int_{-\infty}^{+\infty}a_{j}(t)w\left(t^{\prime}-t\right)e^{-2\pi i \omega t^{\prime}}\mathrm{d}t^{\prime},}
+being \eqn{w\left(t^{\prime}-t\right)} a (hamming) window. The \emph{magnitude} spectrum is then defined as \eqn{|d_{j}(t, \omega)|} and the \emph{phase} spectrum as \eqn{\angle d_{j}(t, \omega)}. In order to be able to reproduce the psychoacoustical data on roughness, the filters \eqn{F_j(t,\omega)} should be more narrow at auditory channels where the center frequency is below 800 Hz, and the filters should be attenuated for high center frequencies as well.
 
-The pattern \eqn{\left\{\mathbf{b}_{k}(\omega)\right\}_{k=1,2,\ldots,m}} are the rows of \eqn{B_{t}(k,\omega)} which represents the \emph{spectrum} of the neural synchronization to the beating frequencies in channel \eqn{k}. The \emph{synchronization index} (Javel et al., 1988) of the beating frequencies is then defined as the normalized magnitude:
-\deqn{I_t(k,\omega)=\left|\frac{B_{t}(k,\omega)}{D_{t}(k, 0)}\right|}
-where \eqn{I_{t}(k, \omega)} is the normalized magnitude in channel \eqn{k}. \eqn{D_{t}(k,0)} is the DC-component of the whole signal in channel \eqn{k}. The short-term energy spectrum of the neural synchronization to beating frequencies in a particular auditory channel \eqn{k} is defined by:
-\deqn{\hat{B_{t}}(k,\omega)=I_{t}(k,\omega)^{\alpha}}
-where \eqn{(1<\alpha<2)} is a  parameter  which  can  be  related  to  the  power  law (Leman, 2000). For this experimental setup  1.6 is chosen. We then define the following relationships for the calculation of roughness:
-\deqn{\mathbf{r}_{\hat{B}_{\omega}}(t)=\int\hat{B}_{t}(\omega)df\quad=\int\sum_{k=1}^{m}\hat{B}_{t}(k,\omega)df}
-\deqn{\mathbf{r}_{\hat{B}_{k}}(t)=\sum_{k=1}^{m}\hat{B}_{t}(k)=\sum_{k=1}^{m}\int\hat{B}_{t}(k,\omega)df}
-where \eqn{\mathbf{r}} is the roughness at time t, obtained by an integration of the energy over all frequencies, as well as over all channels. This definition implies a proper visualization, one along the axis of auditory channels and one along the axis of the (beating) frequencies.}
+The pattern \eqn{b_{j}(t,\omega)} represents the \emph{spectrum} of the neural synchronization to the beating frequencies in each channel. The \emph{synchronization index} (Javel et al., 1988) of the beating frequencies is then defined as the normalized magnitude
+\deqn{\xi_j(t,\omega)=\left|\frac{b_{j}(t,\omega)}{d_{j}(t, 0)}\right|,}
+where \eqn{\xi_{j}(t, \omega)} is the normalized magn  itude and \eqn{d_{j}(t,0)} is the DC-component of the whole signal at each channel. The short-term energy spectrum of the neural synchronization to beating frequencies is defined by
+\deqn{\hat{b}_{j}(t,\omega)=\xi_{j}(t,\omega)^{\alpha},}
+where \eqn{(1<\alpha<2)} is a  parameter  which  can  be  related  to  the  power  law (Leman, 2000). For our function setup  \eqn{\alpha=1.6}. We then define the roughness as
+\deqn{r_{\hat{b}}(t)=\int\sum_{j=1}^{m}\hat{b}_{j}(t,\omega)\mathrm{d}\omega}
+%\deqn{r_{\hat{b}_{j}}(t)=\sum_{j=1}^{m}\hat{b}_{j}(j)=\sum_{j=1}^{m}\int\hat{b}_{j}(k,\omega)\mathrm{d}f}
+which is obtained by an integration of the energy over all frequencies, as well as over all channels. This definition implies a proper visualization, one along the axis of auditory channels and one along the axis of the (beating) frequencies.}
 \usage{RoughnessFFT(inObjANI, inFrameWidth = 0.2, inFrameStepSize = 0.02)}
 \arguments{
   \item{inObjANI}{an object of class "\code{AI}" which must contain an auditory nerve image, its sample frequency and the filterbank frequencies used by the auditory model.}

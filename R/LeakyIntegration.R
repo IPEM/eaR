@@ -12,13 +12,17 @@ LeakyIntegration <- function(inSignal,
     integrator <- 0
   }
 
-  Matrix <- cbind(inSignal, matrix(0L, nrow = nrow(inSignal),
-                                   ncol = round(inSampleFreq*inEnlargement)))
-  outLeakyIntegration <- Matrix*0
+  #Fits a new matrix for the enlargement
+  Ae <- cbind(inSignal,
+                  matrix(0L, nrow = nrow(inSignal),
+                         ncol = round(inSampleFreq*inEnlargement)))
 
-  outLeakyIntegration[,1] <- Matrix[,1]
-  for (i in 2:ncol(Matrix)) {
-    outLeakyIntegration[,i] <- (outLeakyIntegration[,i-1]*integrator) + Matrix[,i]
+  outLeakyIntegration <- Ae*0 #deposit results
+
+  outLeakyIntegration[,1] <- Ae[,1]
+  for (i in 2:ncol(Ae)) {
+    outLeakyIntegration[,i] <- (outLeakyIntegration[,i-1]*integrator) + Ae[,i]
+    print( outLeakyIntegration[,i])
   }
 
   return(outLeakyIntegration)

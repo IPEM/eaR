@@ -1,11 +1,10 @@
 \name{AdaptLevel}
 \alias{AdaptLevel}
-\title{Adapt RMS Power Level}
-\description{This function adapts the Root Mean Square (RMS) power level of the signal \eqn{s(t)} to the specified dB level. The RMS is calculated in the time domain for the sampled signal as:
-\deqn{RMS\{s(t)\}=\sqrt{\frac{1}{N}\sum_{t}s^{2}(t)}}
-where \eqn{N} is the sample size. To calculate the factor to adapt the signal,
-\deqn{A=10*\log_{10}(\mathrm{P}/RMS)}
-where \eqn{RMS} is the reference to which \eqn{P} is being compared.}
+\title{Adapt \code{RMS} Power Level}
+\description{This function adapts the root mean square (\code{RMS}) power level of the signal to the specified dB level (\code{indB}). For a sampled signal \eqn{s_i\ (i=1,\ldots,n)}, the \code{RMS} is defined as
+\deqn{\code{RMS}\{s_i\}=\sqrt{\frac{1}{n}\sum_{i=1}^n s_i^{2}.}}
+The factor to adapt the signal is calculated as
+\eqn{\code{factor}=10\times\log_{10}(\code{indB}/\code{RMS})}.}
 \usage{AdaptLevel(inSignal, indB)}
 \arguments{
   \item{inSignal}{a numeric vector representing the input signal.}

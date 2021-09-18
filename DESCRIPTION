@@ -1,5 +1,5 @@
 Package: eaR
-Title: Perception-based Auditory Analysis
+Title: Perception-based auditory and music analysis
 Version: 0.2.1
 Author: Marc Vidal [aut, cre] (<https://orcid.org/0000-0002-1084-3242>),
     Marc Leman [aut] (<https://orcid.org/0000-0002-9780-2194>),
@@ -11,7 +11,7 @@ Authors@R: c(person("Marc","Vidal",role=c("aut","cre"),email="Marc.VidalBadia@UG
              person("Joren","Six", role="aut",
                     comment = c(ORCID = "0000-0001-7671-1907")))
 Maintainer: Marc Vidal <Marc.VidalBadia@UGent.be>
-Description: This package contains an auditory model based on the analysis of envelope patterns within a set of critical subbands. A physiological representation of the auditory information is reconstructed as a multi-channel set of neuronal firing probabilities. With this, extraction of auditory nerve features are possible for perception-inferential purposes. Leman's auditory short-term memory model is ported to R <doi:10.2307/40285830>.
+Description: This package contains an auditory model based on the analysis of envelope patterns within a set of critical subbands. A physiological representation of the auditory information is reconstructed as a multi-channel set of neuronal firing probabilities. With this, extraction of auditory nerve features are possible for perception-inferential purposes. Leman's auditory short-term memory model is ported to R.
 License: GPL (>= 2)
 URL: https://github.com/m-vidal/eaR
 Depends: 
