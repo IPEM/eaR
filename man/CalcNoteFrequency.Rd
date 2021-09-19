@@ -1,7 +1,7 @@
 \name{CalcNoteFrequency}
 \alias{CalcNoteFrequency}
 \title{Note Frequency}
-\description{This function calculates any note frequency for an equal-tempered scale within a range of eight octaves (0-7). The used formula is,
+\description{This function calculates any note frequency for an equal-tempered scale within a range of eight octaves (0-7). The used formula is
 
 \deqn{\code{frequency}=f_{0} \times (\lambda)^{\code{N}},}
 

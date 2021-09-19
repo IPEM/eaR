@@ -13,4 +13,4 @@ The factor to adapt the signal is calculated as
 \value{A numeric vector representing the adapted input signal.}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
 \note{The multi-channel version of \code{AdaptLevel} is deprecated and only is available in \pkg{IPEM} Toolbox.}
-\examples{AdaptLevel(SchumannKurioseGeschichte, -20)}
+\examples{ALs <- AdaptLevel(SchumannKurioseGeschichte, -20)}

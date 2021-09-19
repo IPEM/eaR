@@ -1,6 +1,7 @@
 RoughnessFFT <- function (inObjANI,
                           inFrameWidth = 0.2,
-                          inFrameStepSize = 0.02) {
+                          inFrameStepSize = 0.02,
+                          alpha = 1.6) {
 inANI <- inObjANI[[1]]
 inANIFreq <- inObjANI[[2]]
 inANIFilterFreqs <- inObjANI[[3]]
@@ -121,12 +122,11 @@ for (i in  seq(from = 1, to = (ncol(inANI)-FrameWidthInSamples+1),
   }
 
   A <- abs(FFT)
-  Alfa <- 1.6
   DC <- kronecker(as.matrix(A[,1]) , t(array(1,NumberOfBins)))
   Weightings <- WKron * AttenuateWindow / DC
 
-  EnergyOverChannels <-  sqrt(rowSums(Weightings * (A[,Begin:End]^Alfa))/NFFT/FrameWidthInSamples)
-  EnergyOverFrequencies <- sqrt(colSums(Weightings * (A[,Begin:End]^Alfa))/NFFT/FrameWidthInSamples)
+  EnergyOverChannels <-  sqrt(rowSums(Weightings * (A[,Begin:End]^alpha))/NFFT/FrameWidthInSamples)
+  EnergyOverFrequencies <- sqrt(colSums(Weightings * (A[,Begin:End]^alpha))/NFFT/FrameWidthInSamples)
 
   outFFTMatrix1[,Counter] <- EnergyOverChannels
   outFFTMatrix2[,Counter] <- EnergyOverFrequencies

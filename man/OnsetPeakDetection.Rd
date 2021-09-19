@@ -13,4 +13,4 @@
 \examples{data(SchumannKurioseGeschichte)
 s <- SchumannKurioseGeschichte
 ANIs <- CalcANI(s[1:22050], 22050)
-OnsetPeakDetection(ANIs$AuditoryNerveImage, ANIs$ANIFreq)}
+OPD <- OnsetPeakDetection(ANIs$AuditoryNerveImage, ANIs$ANIFreq)}

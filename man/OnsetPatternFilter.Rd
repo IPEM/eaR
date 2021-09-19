@@ -15,4 +15,4 @@
 s <- SchumannKurioseGeschichte
 ANIs <- CalcANI(s, 22050)
 OPs <- OnsetPattern(ANIs$AuditoryNerveImage, ANIs$ANIFreq)
-OnsetPatternFilter(OPs$OnsetPattern, OPs$OnsetPatternFreq)}
+OPFs <- OnsetPatternFilter(OPs$OnsetPattern, OPs$OnsetPatternFreq)}

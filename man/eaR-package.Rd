@@ -14,16 +14,16 @@ Some functions were ported from earlier versions of \href{https://github.com/IPE
 Package: \tab eaR\cr
 Type: \tab Package\cr
 Version: \tab 0.2.1\cr
-Date: \tab 2021-mm-dd\cr
+%Date: \tab 2022-mm-dd\cr
 License: \tab GPL-2\cr
 URL:
-     \tab \url{https://github.com/m-vidal/eaR} \cr
+     \tab \url{https://github.com/IPEM/eaR} \cr
 }
 Transformation of acoustic signals to auditory nerve images (ANI) can be realized with function \code{\link{CalcANI}}.  Results of the model (a time/period image) can be accessed through plot function \code{\link{PlotImage}}. Some functions are intended for the creation of auditory stimuli for its subsequent transformation and analysis (\code{\link{AdaptLevel}}, \code{\link{CalcNoteFrequency}}, \code{\link{ShepardTone}}, \code{\link{ShepardToneComplex}}).
 
-Further transformations from auditory nerve images can be taken using \code{\link{PeriodicityPitch}} and \code{\link{LeakyIntegration}} functions. Inferences on pitch images can be performed on \code{\link{ContextualityIndex}}. This function calculates the goodness of fit of tone patterns (\emph{probe}) for a given tonal context.
+Further transformations from auditory nerve images can be taken using \code{\link{PeriodicityPitch}} and \code{\link{LeakyIntegration}} functions. Tonal inferences on periodicity pitch images can be performed with \code{\link{ContextualityIndex}}. This function calculates the goodness of fit of tone patterns (\emph{probe}) for a given tonal context.
 
-Additionally, \code{\link{CalcOnsetsFromANI}} finds onsets of sound events and \code{\link{RoughnessFFT}} analyses the roughness (or equivalently: the sensory dissonance) of a sound. Generally, plots of the analysis can be accessed on the generated object.
+Additionally, \code{\link{CalcOnsetsFromANI}} finds onsets of sound events and \code{\link{RoughnessFFT}} analyses the roughness (or sensory dissonance) of a sound. Generally, plots of the analysis can be accessed on the generated object.
 
 The rest of the functions have an accessory character, and can eventually be used in certain circumstances in combination to the main ones.\cr
 

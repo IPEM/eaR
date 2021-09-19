@@ -6,7 +6,7 @@ The contextuality index measures the pitch commonality between two running perio
 
 The function uses a periodicity pitch image %\eqn{(P_{kl})_{w \times z}}
 to determine two echoed images with a different rate of decay using \code{\link{LeakyIntegration}}. Then, Pearson's correlation coefficient  is calculated across all periodicities concerning  the following methods:
-\itemize{\item{\emph{Inspection}: compares a fixed local image (the \emph{probe} tone) with running local images and running global images.}}  %Let \eqn{P_{lk}^{\tau}} refer to both running local and global images while the fixed local image is the last sample of it; thus, the correlation coefficient can be expressed as}} \deqn{\rho_{l}=\frac{1}{m_2-1}\sum_{k=1}^{m_2}\left(\frac{\overline{P_{lk}^{\tau}-\mu_{l}}}{\sigma_{l}}\right)\left(\frac{P_{n_2k}^{\tau}-\mu_{n_2}}{\sigma_{n_2}}\right).}
+\itemize{\item{\emph{Inspection}: compares a fixed local image (the \emph{probe}) with running local images and running global images.}}  %Let \eqn{P_{lk}^{\tau}} refer to both running local and global images while the fixed local image is the last sample of it; thus, the correlation coefficient can be expressed as}} \deqn{\rho_{l}=\frac{1}{m_2-1}\sum_{k=1}^{m_2}\left(\frac{\overline{P_{lk}^{\tau}-\mu_{l}}}{\sigma_{l}}\right)\left(\frac{P_{n_2k}^{\tau}-\mu_{n_2}}{\sigma_{n_2}}\right).}
 \itemize{\item{\emph{Comparison}: compares a running local image with a running global image. %Then the correlation coefficient between corresponding columns is}} \deqn{\rho_{l}=\frac{1}{m_2-1}\sum_{k=1}^{m_2}\left(\frac{\overline{P_{lk}^{\tau_{1}}-\mu_{l}}}{\sigma_{l}}\right)\left(\frac{P_{lk}^{\tau_{2}}-\mu_{l}}{\sigma_{l}}\right).
 }}
 }

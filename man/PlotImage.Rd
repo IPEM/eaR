@@ -12,4 +12,4 @@
 s <- SchumannKurioseGeschichte
 ANIs <- CalcANI(s, 22050)
 PPs <- PeriodicityPitch(ANIs)
-PlotImage(PPs)}
+PI <- PlotImage(PPs)}

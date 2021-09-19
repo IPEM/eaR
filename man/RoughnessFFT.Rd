@@ -1,7 +1,7 @@
 \name{RoughnessFFT}
 \alias{RoughnessFFT}
 \title{Calculation of the Roughness of Acoustical Musical Signals}
-\description{This function estimates the roughness (or the sensory dissonance) of a sound, from its Auditory Nerve Image calculated in \code{\link{CalcANI}}.
+\description{This function estimates the roughness (or the sensory dissonance) of a sound, from its auditory nerve image calculated in \code{\link{CalcANI}}.
 
 Roughness is considered to be a sensory process highly related to texture perception. The visualization and calculation method is based on Leman (2000), where roughness is defined as the energy of the relevant beating frequencies in the auditory channels. The model is based on phase-locking to frequencies that are present in the neural patterns. A synchronization index allows the visualization of the energy components underlying roughness, in particular concerning the auditory channels and the phase-locking synchronization, that is, the synchronization index for the relevant beating frequencies on a frequency scale.
 
@@ -15,23 +15,25 @@ being \eqn{w\left(t^{\prime}-t\right)} a (hamming) window. The \emph{magnitude} 
 
 The pattern \eqn{b_{j}(t,\omega)} represents the \emph{spectrum} of the neural synchronization to the beating frequencies in each channel. The \emph{synchronization index} (Javel et al., 1988) of the beating frequencies is then defined as the normalized magnitude
 \deqn{\xi_j(t,\omega)=\left|\frac{b_{j}(t,\omega)}{d_{j}(t, 0)}\right|,}
-where \eqn{\xi_{j}(t, \omega)} is the normalized magn  itude and \eqn{d_{j}(t,0)} is the DC-component of the whole signal at each channel. The short-term energy spectrum of the neural synchronization to beating frequencies is defined by
+where \eqn{\xi_{j}(t, \omega)} is the normalized magnitude and \eqn{d_{j}(t,0)} is the DC-component of the whole signal at each channel. The short-term energy spectrum of the neural synchronization to beating frequencies is defined by
 \deqn{\hat{b}_{j}(t,\omega)=\xi_{j}(t,\omega)^{\alpha},}
-where \eqn{(1<\alpha<2)} is a  parameter  which  can  be  related  to  the  power  law (Leman, 2000). For our function setup  \eqn{\alpha=1.6}. We then define the roughness as
-\deqn{r_{\hat{b}}(t)=\int\sum_{j=1}^{m}\hat{b}_{j}(t,\omega)\mathrm{d}\omega}
+where \eqn{(1<\alpha<2)} is a  parameter  which  can  be  related  to  the  power  law (Leman, 2000). For the function setup  \eqn{\alpha=1.6}. We then define the roughness as
+\deqn{r_{\hat{b}}(t)=\int\sum_{j=1}^{m}\hat{b}_{j}(t,\omega)\mathrm{d}\omega, }
 %\deqn{r_{\hat{b}_{j}}(t)=\sum_{j=1}^{m}\hat{b}_{j}(j)=\sum_{j=1}^{m}\int\hat{b}_{j}(k,\omega)\mathrm{d}f}
 which is obtained by an integration of the energy over all frequencies, as well as over all channels. This definition implies a proper visualization, one along the axis of auditory channels and one along the axis of the (beating) frequencies.}
-\usage{RoughnessFFT(inObjANI, inFrameWidth = 0.2, inFrameStepSize = 0.02)}
+\usage{RoughnessFFT(inObjANI, inFrameWidth = 0.2, inFrameStepSize = 0.02, alpha = 1.6)}
 \arguments{
   \item{inObjANI}{an object of class "\code{AI}" which must contain an auditory nerve image, its sample frequency and the filterbank frequencies used by the auditory model.}
   \item{inFrameWidth}{the width of the window for analysing the signal (in s). If empty or not specified, 0.2 s is used by default.}
-  \item{inFrameStepSize}{the stepsize or time interval between two \code{inFrameWidthInSampless} (in s).}}
+  \item{inFrameStepSize}{the stepsize or time interval between two \code{inFrameWidthInSampless} (in s).}
+  \item{alpha}{a parameter to increase the synchronization index.}
+  }
 \details{For now, the roughness values are dependend on the used frame width. So, to make usefull comparisons, only results obtained using the same frame width should be compared.}
 \value{
  \item{outFFTMatrix1}{visualisation of energy over channels.}
   \item{outFFTMatrix2}{visualisation of energy spectrum for synchronization (synchronisation index SI).}
-  \item{outRoughness}{roughness over signal.}
-  \item{outSampleFreq}{sampling rate of outRoughness (in Hz).}
+  \item{outRoughness}{roughness over the signal.}
+  \item{outSampleFreq}{sampling rate of \code{outRoughness} (in Hz).}
   \item{PlotRoughness}{the plot of the roughness over signal.}}
 \references{
 Javel, E., McGee, J., Horst, J., & Farley, G. (1988). Temporal mechanisms in auditory stimulus coding. In G. Edelman, W. Gall, & W. Cowan (Eds.), \emph{Auditory function: neurobiological bases of hearing}. New York: John Wiley and Sons.

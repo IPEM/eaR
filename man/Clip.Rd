@@ -12,5 +12,5 @@
   \item{inClipHighTo}{if non-empty, this is a replacement value for too high values. If empty or not specified, \code{inHighLimit} is used.}}
 \value{A matrix representing the clipped signal.}
 \author{Marc Vidal (\code{R} version). Based on the original code from \pkg{IPEM} Toolbox.}
-\examples{signal <- matrix(runif(64), ncol=8)
-Clip(signal, 0.5 ,0.7, 0, 1)}
+\examples{s <- matrix(runif(64), ncol=8)
+sc <- Clip(s, 0.5 ,0.7, 0, 1)}

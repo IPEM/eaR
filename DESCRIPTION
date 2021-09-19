@@ -13,7 +13,7 @@ Authors@R: c(person("Marc","Vidal",role=c("aut","cre"),email="Marc.VidalBadia@UG
 Maintainer: Marc Vidal <Marc.VidalBadia@UGent.be>
 Description: This package contains an auditory model based on the analysis of envelope patterns within a set of critical subbands. A physiological representation of the auditory information is reconstructed as a multi-channel set of neuronal firing probabilities. With this, extraction of auditory nerve features are possible for perception-inferential purposes. Leman's auditory short-term memory model is ported to R.
 License: GPL (>= 2)
-URL: https://github.com/m-vidal/eaR
+URL: https://github.com/IPEM/eaR
 Depends: 
     R (>= 3.5.0)
 Imports: seewave, signal, stats, tuneR, utils, Rcpp (>= 1.0.7)

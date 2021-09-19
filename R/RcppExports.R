@@ -8,7 +8,7 @@
 #' @param inFirstFreq frequency of first channel (in critical band units)
 #' @param inFreqDist the frequency bandwidth of the "auditory filter"
 #' @param inSampleFrequency is the sample frequency of the input signal
-#' @return Auditory Image + additional files
+#' @return auditory image + additional files
 ear_process <- function(wav, inNumOfChannels, inFirstFreq, inFreqDist, inSampleFrequency) {
     .Call(`_eaR_ear_process`, wav, inNumOfChannels, inFirstFreq, inFreqDist, inSampleFrequency)
 }
